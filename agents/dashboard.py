@@ -133,8 +133,8 @@ h1, h2, h3 {
     background: linear-gradient(135deg, rgba(30, 35, 55, 0.8) 0%, rgba(15, 25, 35, 0.8) 100%);
     border: 1px solid rgba(124, 111, 255, 0.35);
     border-radius: 14px;
-    padding: 0.8rem 1.25rem;
-    margin-bottom: 1.25rem;
+    padding: 0.85rem 1.35rem;
+    margin-bottom: 1.5rem;
     color: #F0F1F5;
     font-size: 0.9rem;
     display: flex;
@@ -168,9 +168,10 @@ kbd {
     background: var(--ada-card);
     border: 1px solid var(--ada-line);
     border-radius: 20px;
-    padding: 1.4rem 1.6rem;
+    padding: 1.5rem 1.8rem;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     transition: all 0.2s ease;
+    margin-bottom: 1.5rem;
 }
 .hero-card {
     background: linear-gradient(145deg, #151724 0%, #0F111B 100%);
@@ -179,19 +180,19 @@ kbd {
 }
 .hero-title {
     font-family: 'Outfit', sans-serif;
-    font-size: 1.85rem;
+    font-size: 2rem;
     font-weight: 800;
     margin: 0 0 0.4rem 0;
     color: var(--ada-ink);
 }
-.hero-sub { color: var(--ada-muted); font-size: 0.92rem; margin: 0; line-height: 1.55; }
+.hero-sub { color: var(--ada-muted); font-size: 0.95rem; margin: 0; line-height: 1.55; }
 
 /* Stat metric cards */
 .stat-card {
     background: var(--ada-card);
     border: 1px solid var(--ada-line);
     border-radius: 16px;
-    padding: 1.1rem 1.25rem;
+    padding: 1.25rem 1.4rem;
     text-align: center;
     transition: transform 0.15s ease, border-color 0.15s ease;
 }
@@ -199,7 +200,7 @@ kbd {
     transform: translateY(-2px);
     border-color: var(--ada-primary);
 }
-.stat-icon { font-size: 1.4rem; margin-bottom: 0.35rem; }
+.stat-icon { font-size: 1.5rem; margin-bottom: 0.35rem; }
 .stat-label {
     font-size: 0.72rem;
     color: var(--ada-muted);
@@ -209,18 +210,18 @@ kbd {
 }
 .stat-value {
     font-family: 'Outfit', sans-serif;
-    font-size: 2rem;
+    font-size: 2.1rem;
     font-weight: 800;
     color: var(--ada-primary);
     line-height: 1.1;
-    margin-top: 0.2rem;
+    margin-top: 0.25rem;
 }
 
 .section-title {
     font-family: 'Outfit', sans-serif;
     font-weight: 700;
-    font-size: 1.1rem;
-    margin: 0 0 0.75rem 0;
+    font-size: 1.15rem;
+    margin: 0 0 0.85rem 0;
     color: var(--ada-ink);
 }
 
@@ -230,14 +231,14 @@ kbd {
     color: var(--ada-ink) !important;
     border: 1px solid var(--ada-line) !important;
     border-radius: 14px !important;
-    min-height: 56px !important;
+    min-height: 60px !important;
     white-space: pre-wrap !important;
     word-break: break-word !important;
     text-align: center !important;
     font-weight: 600 !important;
-    font-size: 0.85rem !important;
-    line-height: 1.3 !important;
-    padding: 0.6rem 0.65rem !important;
+    font-size: 0.88rem !important;
+    line-height: 1.35 !important;
+    padding: 0.75rem 0.85rem !important;
     transition: all 0.15s ease !important;
 }
 .main-content div[data-testid="column"] .stButton > button:hover {
@@ -252,38 +253,42 @@ div[data-testid="stTextInput"] input {
     color: var(--ada-ink) !important;
     border: 1px solid var(--ada-line) !important;
     border-radius: 12px !important;
-    padding: 0.65rem 1rem !important;
+    padding: 0.75rem 1rem !important;
 }
 div[data-testid="stTextInput"] input::placeholder { color: var(--ada-muted) !important; }
 
 .feed-item {
     border-bottom: 1px solid var(--ada-line);
-    padding: 0.85rem 0;
+    padding: 1rem 0;
 }
 .feed-item:last-child { border-bottom: none; }
-.feed-title { font-weight: 600; font-size: 0.92rem; }
-.feed-meta { color: var(--ada-muted); font-size: 0.8rem; margin-top: 0.2rem; }
+.feed-title { font-weight: 600; font-size: 0.98rem; }
+.feed-meta { color: var(--ada-muted); font-size: 0.83rem; margin-top: 0.25rem; }
 .feed-match {
     font-family: 'Outfit', sans-serif;
     font-weight: 800;
     color: var(--ada-primary);
-    font-size: 0.95rem;
+    font-size: 1rem;
+    background: rgba(124, 111, 255, 0.12);
+    border: 1px solid rgba(124, 111, 255, 0.25);
+    border-radius: 20px;
+    padding: 0.25rem 0.75rem;
 }
-.feed-link a { color: var(--ada-primary); text-decoration: none; font-size: 0.8rem; font-weight: 600; }
+.feed-link a { color: var(--ada-primary); text-decoration: none; font-size: 0.83rem; font-weight: 600; }
 
 .result-banner {
     background: var(--ada-primary-soft);
     border: 1px solid #D5D2FF;
     border-radius: 14px;
     padding: 1rem 1.25rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 .summary-hero {
     background: var(--ada-gradient);
     border-radius: 20px;
     padding: 2rem;
     color: #fff;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
 }
 .summary-hero h2 { color: #fff !important; margin: 0 0 0.5rem 0; font-size: 1.6rem; }
 .summary-hero p { color: rgba(255,255,255,0.88); margin: 0; }
@@ -467,7 +472,7 @@ if st.session_state.ada_page != "home":
 # ---------------------------------------------------------------------------
 st.markdown('<div class="main-content">', unsafe_allow_html=True)
 
-# Top Prominent Hotkey Banner
+# 1. Top Hotkey Banner
 st.markdown(
     """
     <div class="hotkey-banner">
@@ -481,89 +486,86 @@ st.markdown(
 )
 
 if st.session_state.ada_page == "home":
-    # --- Top Row: Hello Hero (Left) & Quick Actions Grid (Right) ---
-    top_hero_col, top_quick_col = st.columns([1.1, 1.2])
-
-    with top_hero_col:
-        st.markdown(
-            """
-            <div class="ada-card hero-card" style="height: 100%; display:flex; flex-direction:column; justify-content:center;">
-                <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.4rem;">
-                    <span class="brand-dot"></span>
-                    <span style="font-size:0.75rem; font-weight:700; color:#00E5D2; text-transform:uppercase; letter-spacing:0.08em;">Active Career Assistant</span>
-                </div>
-                <div class="hero-title">Hello, I'm ADA 👋</div>
-                <p class="hero-sub">Monitors your Gmail job alerts, parses remote listings, scores them against your resume with AI embeddings, and auto-schedules application slots on Google Calendar.</p>
+    # 2. Hero Greeting Card (Hello I'm ADA - Full Width)
+    st.markdown(
+        """
+        <div class="ada-card hero-card">
+            <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.4rem;">
+                <span class="brand-dot"></span>
+                <span style="font-size:0.75rem; font-weight:700; color:#00E5D2; text-transform:uppercase; letter-spacing:0.08em;">Active Career Assistant</span>
             </div>
-            """,
-            unsafe_allow_html=True,
-        )
+            <div class="hero-title">Hello, I'm ADA 👋</div>
+            <p class="hero-sub">Monitors your Gmail job alerts, parses remote listings, scores them against your resume with AI embeddings, and auto-schedules application slots on Google Calendar.</p>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
 
-    with top_quick_col:
-        st.markdown('<div class="section-title">⚡ Quick Actions</div>', unsafe_allow_html=True)
-        qa1, qa2, qa3 = st.columns(3)
-        with qa1:
-            if cmd_button("📧", "Scan Gmail", "Inbox job alerts", "qa_gmail"):
-                with st.spinner("Checking Gmail inbox for job alerts..."):
+    # 3. Quick Actions Section (Below Hello I'm ADA)
+    st.markdown('<div class="section-title">⚡ Quick Actions</div>', unsafe_allow_html=True)
+    qa1, qa2, qa3 = st.columns(3)
+    with qa1:
+        if cmd_button("📧", "Scan Gmail", "Inbox job alerts", "qa_gmail"):
+            with st.spinner("Checking Gmail inbox for job alerts..."):
+                apply_result(run_google_action(
+                    "Scan Gmail",
+                    lambda: run_gmail_pipeline(min_score=auto_min_score, top_n=auto_top_n),
+                ))
+    with qa2:
+        if cmd_button("🌐", "Scan RemoteOK", "Live remote jobs", "qa_remoteok"):
+            with st.spinner("Fetching RemoteOK listings..."):
+                apply_result(run_google_action(
+                    "Scan RemoteOK",
+                    lambda: run_remoteok_pipeline(min_score=auto_min_score, top_n=auto_top_n),
+                ))
+    with qa3:
+        if cmd_button("📅", "Auto Schedule", "Calendar sync", "qa_schedule"):
+            with st.spinner("Scheduling top matches to Calendar..."):
+                if st.session_state.ranked_jobs:
+                    scheduled = schedule_jobs(st.session_state.ranked_jobs, min_score=auto_min_score, top_n=auto_top_n)
+                    done = [s for s in scheduled if s.get("status") == "scheduled"]
+                    record_calendar_scheduled(len(done))
+                    apply_result({
+                        "source": "Calendar",
+                        "found": len(st.session_state.ranked_jobs),
+                        "ranked_jobs": st.session_state.ranked_jobs,
+                        "scheduled": done,
+                        "message": f"Scheduled {len(done)} top match(es) on your Google Calendar.",
+                    })
+                else:
                     apply_result(run_google_action(
-                        "Scan Gmail",
-                        lambda: run_gmail_pipeline(min_score=auto_min_score, top_n=auto_top_n),
-                    ))
-        with qa2:
-            if cmd_button("🌐", "Scan RemoteOK", "Live remote jobs", "qa_remoteok"):
-                with st.spinner("Fetching RemoteOK listings..."):
-                    apply_result(run_google_action(
-                        "Scan RemoteOK",
-                        lambda: run_remoteok_pipeline(min_score=auto_min_score, top_n=auto_top_n),
-                    ))
-        with qa3:
-            if cmd_button("📅", "Auto Schedule", "Calendar sync", "qa_schedule"):
-                with st.spinner("Scheduling top matches to Calendar..."):
-                    if st.session_state.ranked_jobs:
-                        scheduled = schedule_jobs(st.session_state.ranked_jobs, min_score=auto_min_score, top_n=auto_top_n)
-                        done = [s for s in scheduled if s.get("status") == "scheduled"]
-                        record_calendar_scheduled(len(done))
-                        apply_result({
-                            "source": "Calendar",
-                            "found": len(st.session_state.ranked_jobs),
-                            "ranked_jobs": st.session_state.ranked_jobs,
-                            "scheduled": done,
-                            "message": f"Scheduled {len(done)} top match(es) on your Google Calendar.",
-                        })
-                    else:
-                        apply_result(run_google_action(
-                            "Auto Schedule",
-                            lambda: run_full_pipeline(min_score=auto_min_score, top_n=auto_top_n),
-                        ))
-
-        st.markdown("<div style='height:0.35rem'></div>", unsafe_allow_html=True)
-        qa4, qa5, qa6 = st.columns(3)
-        with qa4:
-            if cmd_button("🔍", "Full Pipeline", "Run all sources", "qa_full"):
-                with st.spinner("Running full Gmail + RemoteOK pipeline..."):
-                    apply_result(run_google_action(
-                        "Full Pipeline",
+                        "Auto Schedule",
                         lambda: run_full_pipeline(min_score=auto_min_score, top_n=auto_top_n),
                     ))
-        with qa5:
-            if cmd_button("📊", "Daily Summary", "Today's report", "qa_summary"):
-                with st.spinner("Building summary..."):
-                    st.session_state.daily_summary = build_daily_summary(min_score=auto_min_score)
-                st.session_state.ada_page = "summary"
-                st.rerun()
-        with qa6:
-            if cmd_button("💬", "WhatsApp", "Send update", "qa_wa"):
-                try:
-                    from agents.whatsapp_agent import MY_PHONE_NUMBER, send_whatsapp_message
-                    summary = build_daily_summary(min_score=auto_min_score)
-                    send_whatsapp_message(MY_PHONE_NUMBER, summary["summary_text"])
-                    st.success("Summary sent to WhatsApp!")
-                except Exception as exc:
-                    st.info(f"WhatsApp not configured: {exc}")
 
-    st.markdown("<div style='height:1.25rem'></div>", unsafe_allow_html=True)
+    st.markdown("<div style='height:0.5rem'></div>", unsafe_allow_html=True)
+    qa4, qa5, qa6 = st.columns(3)
+    with qa4:
+        if cmd_button("🔍", "Full Pipeline", "Run all sources", "qa_full"):
+            with st.spinner("Running full Gmail + RemoteOK pipeline..."):
+                apply_result(run_google_action(
+                    "Full Pipeline",
+                    lambda: run_full_pipeline(min_score=auto_min_score, top_n=auto_top_n),
+                ))
+    with qa5:
+        if cmd_button("📊", "Daily Summary", "Today's report", "qa_summary"):
+            with st.spinner("Building summary..."):
+                st.session_state.daily_summary = build_daily_summary(min_score=auto_min_score)
+            st.session_state.ada_page = "summary"
+            st.rerun()
+    with qa6:
+        if cmd_button("💬", "WhatsApp", "Send update", "qa_wa"):
+            try:
+                from agents.whatsapp_agent import MY_PHONE_NUMBER, send_whatsapp_message
+                summary = build_daily_summary(min_score=auto_min_score)
+                send_whatsapp_message(MY_PHONE_NUMBER, summary["summary_text"])
+                st.success("Summary sent to WhatsApp!")
+            except Exception as exc:
+                st.info(f"WhatsApp not configured: {exc}")
 
-    # --- Second Row: Stat Metric Cards ---
+    st.markdown("<div style='height:1.75rem'></div>", unsafe_allow_html=True)
+
+    # 4. Stat Metric Cards (Directly Below Quick Actions)
     c1, c2, c3, c4 = st.columns(4)
     with c1:
         st.markdown(
@@ -594,52 +596,40 @@ if st.session_state.ada_page == "home":
             unsafe_allow_html=True,
         )
 
-    st.markdown("<div style='height:1.25rem'></div>", unsafe_allow_html=True)
+    st.markdown("<div style='height:1.75rem'></div>", unsafe_allow_html=True)
     render_result_banner()
 
+    # 5. Search & Job Feed (Full Width - Quick Guide Card Removed!)
     st.text_input(
         "Search jobs", placeholder="Search by title, skills or company...",
         label_visibility="collapsed", key="job_search_query",
     )
+    st.markdown("<div style='height:0.75rem'></div>", unsafe_allow_html=True)
 
-    left, right = st.columns([1.6, 1])
+    st.markdown('<div class="section-title">Top Matches Feed</div>', unsafe_allow_html=True)
+    feed = st.session_state.ranked_jobs
+    if search:
+        feed = ranked_jobs
 
-    with left:
-        st.markdown('<div class="section-title">Top Matches Feed</div>', unsafe_allow_html=True)
-        feed = st.session_state.ranked_jobs
-        if search:
-            feed = ranked_jobs
-        html = '<div class="ada-card">'
-        if not feed:
-            html += '<p style="color:#8E93A6;margin:0;padding:0.5rem 0;">No matches loaded yet. Click <b>Scan Gmail</b> or <b>Scan RemoteOK</b> to populate job postings.</p>'
-        for job in feed[:8]:
-            link = job.get("link", "")
-            link_part = f'<div class="feed-link"><a href="{link}" target="_blank">View posting →</a></div>' if link else ""
-            html += f"""
-            <div class="feed-item">
-                <div style="display:flex;justify-content:space-between;gap:0.5rem">
-                    <div>
-                        <div class="feed-title">{job['title'][:55]}</div>
-                        <div class="feed-meta">{job.get('source','')}</div>
-                        {link_part}
-                    </div>
-                    <div class="feed-match">{job.get('match_score','—')}% Match</div>
+    html = '<div class="ada-card">'
+    if not feed:
+        html += '<p style="color:#8E93A6;margin:0;padding:0.75rem 0;">No matches loaded yet. Click <b>Scan Gmail</b> or <b>Scan RemoteOK</b> to populate job postings.</p>'
+    for job in feed[:12]:
+        link = job.get("link", "")
+        link_part = f'<div class="feed-link"><a href="{link}" target="_blank">View posting →</a></div>' if link else ""
+        html += f"""
+        <div class="feed-item">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem">
+                <div>
+                    <div class="feed-title">{job['title']}</div>
+                    <div class="feed-meta">{job.get('source','')}</div>
+                    {link_part}
                 </div>
-            </div>"""
-        html += "</div>"
-        st.markdown(html, unsafe_allow_html=True)
-
-    with right:
-        with st.expander("❓ Quick Guide & Agent Actions", expanded=True):
-            st.markdown("""
-- **⚡ Hotkey Shortcut** — press `Ctrl+Alt+A` anywhere on Windows to launch ADA instantly!
-- **📧 Scan Gmail** — checks your Gmail inbox for job alert emails (LinkedIn/Naukri).
-- **🌐 Scan RemoteOK** — fetches live software & remote job listings from RemoteOK's public API.
-- **📅 Auto Schedule** — automatically finds free calendar slots and adds application events.
-- **🔍 Full Pipeline** — runs complete ingestion, embedding scoring, and scheduling.
-- **📊 Daily Summary** — clean single page report of all agent actions taken today.
-- **🗣️ Talk to Ada** — type natural language commands to open desktop apps, message contacts, or place calls.
-            """)
+                <div class="feed-match">{job.get('match_score','—')}% Match</div>
+            </div>
+        </div>"""
+    html += "</div>"
+    st.markdown(html, unsafe_allow_html=True)
 
 # ---------------------------------------------------------------------------
 # Dedicated "Talk to Ada" Page
@@ -655,7 +645,7 @@ elif st.session_state.ada_page == "talk":
         unsafe_allow_html=True,
     )
 
-    st.markdown('<div class="ada-card" style="margin-bottom:1.25rem">', unsafe_allow_html=True)
+    st.markdown('<div class="ada-card" style="margin-bottom:1.5rem">', unsafe_allow_html=True)
     st.markdown("**Enter Natural Language Command**")
     cmd_col, btn_col = st.columns([5, 1])
     with cmd_col:
