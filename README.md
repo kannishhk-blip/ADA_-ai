@@ -33,22 +33,15 @@ agent that follows instructions and takes action on its own.
    the whole pipeline and prints one clean report
 8. **Ada hotkey** — `ada_hotkey.py` — listens for `Ctrl+Alt+A` to open the app window instantly.
 
-## Quick reference
+## System Subsystems & Script Reference
 
-| Script | What it proves |
-|---|---|
-| `config/google_auth.py` | OAuth works; token is saved for reuse |
-| `agents/gmail_ingest.py` | Real job data from your inbox via Gmail API |
-| `agents/remoteok_ingest.py` | Real job listings from RemoteOK's public API |
-| `agents/matching_agent.py` | Resume-vs-job scoring using local AI embeddings |
-| `agents/planning_agent.py` | Auto-schedules to Google Calendar, no duplicates |
-| `agents/dashboard.py` | Browser-based review UI (auto or manual mode) |
-| `agents/ada_hotkey.py` | Global `Ctrl+Alt+A` desktop launcher |
-| `agents/whatsapp_agent.py` | Sends a real WhatsApp message via Twilio |
-| `agents/call_agent.py` | Places a real phone call with a spoken message |
-| `agents/meeting_reminder_agent.py` | Calls your phone before calendar meetings |
-| `agents/ada_assistant.py` | Natural-language command interface |
-| `agents/daily_summary.py` | Runs everything, prints one report |
+| Subsystem / Module | Key Scripts | Capability Proved |
+|---|---|---|
+| 🔐 **Auth & Config** | `config/google_auth.py` | Google OAuth2 Desktop authentication & session token management |
+| 📡 **Job Ingestion & Matching** | `gmail_ingest.py`, `remoteok_ingest.py`, `matching_agent.py` | Fetches inbox alerts & remote listings, scores against resume via local AI embeddings |
+| 📅 **Calendar & Planning** | `planning_agent.py`, `meeting_reminder_agent.py` | Auto-schedules application slots on Google Calendar & places phone reminders before meetings |
+| 💬 **Comms & Command Layer** | `ada_assistant.py`, `whatsapp_agent.py`, `call_agent.py` | Natural language voice/text commands, Twilio WhatsApp messaging & phone calling |
+| 🖥️ **Dashboard & Automation** | `dashboard.py`, `ada_hotkey.py`, `daily_summary.py` | Streamlit web GUI, global `Ctrl+Alt+A` desktop launcher, & daily automated pipeline runner |
 
 ## Setup (in order)
 
