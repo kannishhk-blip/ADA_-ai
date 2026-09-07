@@ -63,21 +63,31 @@ st.markdown(
 [data-testid="stAppViewContainer"] { background: var(--ada-bg); }
 [data-testid="stHeader"] { background: transparent !important; }
 
-/* ALWAYS show the sidebar collapse/expand toggle button clearly */
+/* Prominent Sidebar Expand Button (when collapsed) */
 [data-testid="stSidebarCollapsedControl"] {
     display: flex !important;
     visibility: visible !important;
+    align-items: center !important;
     background: #16171D !important;
-    border: 1.5px solid var(--ada-primary) !important;
-    border-radius: 10px !important;
+    border: 2px solid var(--ada-accent) !important;
+    border-radius: 12px !important;
     color: var(--ada-accent) !important;
     margin: 10px !important;
+    padding: 4px 10px !important;
     z-index: 999999 !important;
-    box-shadow: 0 4px 16px rgba(124, 111, 255, 0.3) !important;
+    box-shadow: 0 0 16px rgba(0, 229, 210, 0.35) !important;
+}
+[data-testid="stSidebarCollapsedControl"]::after {
+    content: " ⚙️ Open Settings Sidebar";
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--ada-accent);
+    margin-left: 6px;
+    white-space: nowrap;
 }
 [data-testid="stSidebarCollapsedControl"]:hover {
     background: #1E2140 !important;
-    border-color: var(--ada-accent) !important;
+    border-color: #7C6FFF !important;
 }
 [data-testid="stSidebarCollapsedControl"] svg {
     fill: var(--ada-accent) !important;
@@ -231,7 +241,7 @@ kbd {
     background: var(--ada-card);
     border: 1px solid var(--ada-line);
     border-radius: 16px;
-    padding: 1.25rem 1.4rem;
+    padding: 1.1rem 1.25rem;
     text-align: center;
     transition: transform 0.15s ease, border-color 0.15s ease;
 }
@@ -239,7 +249,7 @@ kbd {
     transform: translateY(-2px);
     border-color: var(--ada-primary);
 }
-.stat-icon { font-size: 1.5rem; margin-bottom: 0.35rem; }
+.stat-icon { font-size: 1.4rem; margin-bottom: 0.35rem; }
 .stat-label {
     font-size: 0.72rem;
     color: var(--ada-muted);
