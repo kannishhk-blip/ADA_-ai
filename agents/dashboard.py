@@ -63,35 +63,22 @@ st.markdown(
 [data-testid="stAppViewContainer"] { background: var(--ada-bg); }
 [data-testid="stHeader"] { background: transparent !important; }
 
-/* Prominent Sidebar Expand Button (when collapsed) */
-[data-testid="stSidebarCollapsedControl"] {
-    display: flex !important;
+/* PERMANENT LEFT SIDEBAR: Force Left Sidebar to ALWAYS stay open and visible */
+[data-testid="stSidebar"] {
+    display: block !important;
     visibility: visible !important;
-    align-items: center !important;
-    background: #16171D !important;
-    border: 2px solid var(--ada-accent) !important;
-    border-radius: 12px !important;
-    color: var(--ada-accent) !important;
-    margin: 10px !important;
-    padding: 4px 10px !important;
-    z-index: 999999 !important;
-    box-shadow: 0 0 16px rgba(0, 229, 210, 0.35) !important;
+    transform: none !important;
+    margin-left: 0 !important;
+    background: #0B0C10 !important;
+    border-right: 1px solid var(--ada-line) !important;
+    width: 280px !important;
+    min-width: 280px !important;
 }
-[data-testid="stSidebarCollapsedControl"]::after {
-    content: " ⚙️ Open Settings Sidebar";
-    font-size: 0.82rem;
-    font-weight: 700;
-    color: var(--ada-accent);
-    margin-left: 6px;
-    white-space: nowrap;
-}
-[data-testid="stSidebarCollapsedControl"]:hover {
-    background: #1E2140 !important;
-    border-color: #7C6FFF !important;
-}
-[data-testid="stSidebarCollapsedControl"] svg {
-    fill: var(--ada-accent) !important;
-    color: var(--ada-accent) !important;
+
+/* Hide collapse button so sidebar never disappears */
+[data-testid="stSidebar"] button[kind="header"],
+[data-testid="stSidebarCollapsedControl"] {
+    display: none !important;
 }
 
 /* Custom scrollbars */
@@ -100,11 +87,6 @@ st.markdown(
 ::-webkit-scrollbar-thumb { background: var(--ada-line); border-radius: 4px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--ada-primary); }
 
-/* Sidebar styling */
-[data-testid="stSidebar"] {
-    background: #0B0C10 !important;
-    border-right: 1px solid var(--ada-line) !important;
-}
 [data-testid="stSidebar"] .stMarkdown p { color: #9BA3BF !important; }
 
 .sidebar-label {
@@ -438,7 +420,7 @@ def render_result_banner() -> None:
 
 
 # ---------------------------------------------------------------------------
-# Sidebar (Left Column Controls)
+# Permanent Left Sidebar Column
 # ---------------------------------------------------------------------------
 with st.sidebar:
     st.markdown(
@@ -503,7 +485,7 @@ if search:
 
 
 # ---------------------------------------------------------------------------
-# Navigation Bar Component (Rendered on ALL pages to guarantee navigation)
+# Navigation Bar Component
 # ---------------------------------------------------------------------------
 def render_navigation() -> None:
     top_nav = [
@@ -525,7 +507,6 @@ def render_navigation() -> None:
                 st.rerun()
 
 
-# Render top navigation bar across all pages
 render_navigation()
 st.markdown("<div style='height:0.75rem'></div>", unsafe_allow_html=True)
 
@@ -661,7 +642,7 @@ if st.session_state.ada_page == "home":
     st.markdown("<div style='height:1.75rem'></div>", unsafe_allow_html=True)
     render_result_banner()
 
-    # 5. Search & Job Feed (Full Width)
+    # 5. Search & Job Feed
     st.text_input(
         "Search jobs", placeholder="Search by title, skills or company...",
         label_visibility="collapsed", key="job_search_query",
