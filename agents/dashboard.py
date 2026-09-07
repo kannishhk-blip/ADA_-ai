@@ -76,6 +76,33 @@ st.markdown(
     border-right: 1px solid var(--ada-line) !important;
 }
 [data-testid="stSidebar"] .stMarkdown p { color: #9BA3BF !important; }
+
+.sidebar-label {
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: #00E5D2;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.sidebar-card {
+    background: #12131A;
+    border: 1px solid #232636;
+    border-radius: 14px;
+    padding: 0.9rem 1rem;
+    margin-bottom: 1rem;
+}
+
+[data-testid="stSidebar"] .stSlider label {
+    font-size: 0.84rem !important;
+    font-weight: 600 !important;
+    color: #E8EAF5 !important;
+}
+
 [data-testid="stSidebar"] .stButton > button[kind="primary"] {
     background: var(--ada-gradient) !important;
     color: #fff !important;
@@ -389,7 +416,7 @@ def render_result_banner() -> None:
 
 
 # ---------------------------------------------------------------------------
-# Sidebar
+# Sidebar (Left Column Controls)
 # ---------------------------------------------------------------------------
 with st.sidebar:
     st.markdown(
@@ -397,13 +424,26 @@ with st.sidebar:
         '<div class="brand-sub"><span class="brand-dot"></span>AI Career Assistant · Online</div>',
         unsafe_allow_html=True,
     )
-    st.markdown("<br>", unsafe_allow_html=True)
+    st.markdown("<div style='height:1.25rem'></div>", unsafe_allow_html=True)
 
-    st.markdown("**Settings**")
-    auto_min_score = st.slider("Min match %", 0, 100, 50)
-    auto_top_n = st.slider("Schedule top N matches", 1, 10, 3)
+    st.markdown('<div class="sidebar-label">⚙️ MATCHING ENGINE CONTROLS</div>', unsafe_allow_html=True)
 
-    st.markdown("<br>", unsafe_allow_html=True)
+    auto_min_score = st.slider(
+        "Minimum Match Score Threshold %",
+        min_value=0, max_value=100, value=50, step=5,
+        help="Only job postings scoring at or above this percentage will be automatically scheduled on Google Calendar.",
+    )
+
+    st.markdown("<div style='height:0.5rem'></div>", unsafe_allow_html=True)
+
+    auto_top_n = st.slider(
+        "Max Schedule Slots (Top N)",
+        min_value=1, max_value=10, value=3, step=1,
+        help="Maximum number of top-matching application slots to schedule per scan execution.",
+    )
+
+    st.markdown("<div style='height:1.25rem'></div>", unsafe_allow_html=True)
+    st.markdown('<div class="sidebar-label">📍 NAVIGATION</div>', unsafe_allow_html=True)
 
     nav = [
         ("🏠  Home", "home"),
@@ -421,9 +461,8 @@ with st.sidebar:
                     st.session_state.daily_summary = build_daily_summary(min_score=auto_min_score)
             st.rerun()
 
-    st.markdown("<hr style='border-color:#2A2D4A'>", unsafe_allow_html=True)
+    st.markdown("<hr style='border-color:#2A2D4A; margin:1.5rem 0;'>", unsafe_allow_html=True)
 
-    st.markdown("<br>", unsafe_allow_html=True)
     st.markdown(
         '<div class="user-pill">'
         '<div class="user-avatar">K</div>'
@@ -599,7 +638,7 @@ if st.session_state.ada_page == "home":
     st.markdown("<div style='height:1.75rem'></div>", unsafe_allow_html=True)
     render_result_banner()
 
-    # 5. Search & Job Feed (Full Width - Quick Guide Card Removed!)
+    # 5. Search & Job Feed (Full Width)
     st.text_input(
         "Search jobs", placeholder="Search by title, skills or company...",
         label_visibility="collapsed", key="job_search_query",
