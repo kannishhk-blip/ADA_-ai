@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import contextlib
 import io
+import os
 import sys
 from datetime import datetime
 from pathlib import Path
@@ -28,6 +29,7 @@ from agents.job_pipeline import (
     run_remoteok_pipeline,
     schedule_jobs,
 )
+from agents.matching_agent import RESUME_PATH, load_resume_text
 from agents.planning_agent import LOOK_AHEAD_DAYS, get_already_scheduled_titles
 from config.google_auth import get_calendar_service
 
@@ -245,14 +247,14 @@ kbd {
     transform: translateY(-1px);
 }
 
-div[data-testid="stTextInput"] input {
+div[data-testid="stTextInput"] input, div[data-testid="stTextArea"] textarea {
     background: var(--ada-card) !important;
     color: var(--ada-ink) !important;
     border: 1px solid var(--ada-line) !important;
     border-radius: 12px !important;
     padding: 0.65rem 1rem !important;
 }
-div[data-testid="stTextInput"] input::placeholder { color: var(--ada-muted) !important; }
+div[data-testid="stTextInput"] input::placeholder, div[data-testid="stTextArea"] textarea::placeholder { color: var(--ada-muted) !important; }
 
 .feed-item {
     border-bottom: 1px solid var(--ada-line);
@@ -382,7 +384,7 @@ def render_result_banner() -> None:
 
 
 # ---------------------------------------------------------------------------
-# Sidebar
+# Sidebar Navigation
 # ---------------------------------------------------------------------------
 with st.sidebar:
     st.markdown(
@@ -404,6 +406,7 @@ with st.sidebar:
         ("✨  Job Matches", "matches"),
         ("📅  My Calendar", "calendar"),
         ("📊  Daily Summary", "summary"),
+        ("📄  My Resume", "resume"),  # Top Right Corner Resume Option
     ]
     for label, key in nav:
         btn_type = "primary" if st.session_state.ada_page == key else "secondary"
@@ -435,7 +438,7 @@ if search:
 
 
 # ---------------------------------------------------------------------------
-# Navigation Bar Component
+# Top Header Navigation Bar Component (With "My Resume" in Top Right Corner)
 # ---------------------------------------------------------------------------
 def render_navigation() -> None:
     top_nav = [
@@ -444,10 +447,12 @@ def render_navigation() -> None:
         ("✨ Job Matches", "matches"),
         ("📅 My Calendar", "calendar"),
         ("📊 Daily Summary", "summary"),
+        ("📄 My Resume", "resume"),  # Right side top corner option!
     ]
     nav_cols = st.columns(len(top_nav))
     for (label, key), col in zip(top_nav, nav_cols):
         with col:
+            # Highlight 'My Resume' in vibrant accent style if selected or as top right action
             btn_type = "primary" if st.session_state.ada_page == key else "secondary"
             if st.button(label, key=f"topnav_{key}", use_container_width=True, type=btn_type):
                 st.session_state.ada_page = key
@@ -559,7 +564,9 @@ if st.session_state.ada_page == "home":
                 except Exception as exc:
                     st.info(f"WhatsApp not configured: {exc}")
 
-    st.markdown("<div style='height:1.25rem'></div>", unsafe_allow_html=True)
+    st.markdown("<div style='height:0.5rem'></div>", unsafe_allow_html=True)
+    render_navigation()
+    st.markdown("<div style='height:0.75rem'></div>", unsafe_allow_html=True)
 
     # --- Second Row: Stat Metric Cards ---
     c1, c2, c3, c4 = st.columns(4)
@@ -630,6 +637,7 @@ if st.session_state.ada_page == "home":
     with right:
         with st.expander("❓ Quick Guide & Agent Actions", expanded=True):
             st.markdown("""
+- **📄 My Resume** *(top right)* — view and update your active resume text used for AI matching.
 - **⚡ Hotkey Shortcut** — press `Ctrl+Alt+A` anywhere on Windows to launch ADA instantly!
 - **📧 Scan Gmail** — checks your Gmail inbox for job alert emails (LinkedIn/Naukri).
 - **🌐 Scan RemoteOK** — fetches live software & remote job listings from RemoteOK's public API.
@@ -638,6 +646,57 @@ if st.session_state.ada_page == "home":
 - **📊 Daily Summary** — clean single page report of all agent actions taken today.
 - **🗣️ Talk to Ada** — type natural language commands to open desktop apps, message contacts, or place calls.
             """)
+
+# ---------------------------------------------------------------------------
+# Dedicated "My Resume" Page
+# ---------------------------------------------------------------------------
+elif st.session_state.ada_page == "resume":
+    resume_text = load_resume_text()
+    st.markdown(
+        """
+        <div class="summary-hero">
+            <h2>📄 My Resume & AI Skills Profile</h2>
+            <p>This resume is used by local AI embeddings (SentenceTransformers) to calculate job match scores.</p>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    res_col_left, res_col_right = st.columns([1.2, 1])
+
+    with res_col_left:
+        st.markdown('<div class="section-title">📄 Formatted Resume Preview</div>', unsafe_allow_html=True)
+        st.markdown('<div class="ada-card">', unsafe_allow_html=True)
+        # Render clean line-by-line formatted view
+        lines = resume_text.splitlines()
+        for line in lines:
+            if not line.strip():
+                st.markdown("<br>", unsafe_allow_html=True)
+            elif line.isupper() and len(line) < 30:
+                st.markdown(f"#### {line}")
+            else:
+                st.markdown(line)
+        st.markdown("</div>", unsafe_allow_html=True)
+
+    with res_col_right:
+        st.markdown('<div class="section-title">✏️ Edit Resume Plaintext</div>', unsafe_allow_html=True)
+        st.markdown('<div class="ada-card">', unsafe_allow_html=True)
+        st.caption(f"File location: `{RESUME_PATH}`")
+        edited_resume = st.text_area(
+            "Resume text editor",
+            value=resume_text,
+            height=440,
+            label_visibility="collapsed",
+            key="resume_text_area_editor",
+        )
+        if st.button("💾 Save Updated Resume", type="primary", use_container_width=True):
+            try:
+                Path(RESUME_PATH).write_text(edited_resume, encoding="utf-8")
+                st.success("Resume updated successfully! AI matching will use your new resume.")
+                st.rerun()
+            except Exception as e:
+                st.error(f"Failed to save resume: {e}")
+        st.markdown("</div>", unsafe_allow_html=True)
 
 # ---------------------------------------------------------------------------
 # Dedicated "Talk to Ada" Page
