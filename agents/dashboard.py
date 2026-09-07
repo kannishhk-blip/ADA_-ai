@@ -128,6 +128,36 @@ h1, h2, h3 {
     box-shadow: 0 0 8px #34D399;
 }
 
+/* Hotkey Banner */
+.hotkey-banner {
+    background: linear-gradient(135deg, rgba(124, 111, 255, 0.15) 0%, rgba(0, 229, 210, 0.15) 100%);
+    border: 1px solid rgba(124, 111, 255, 0.4);
+    border-radius: 14px;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1.25rem;
+    color: #F3F4F8;
+    font-size: 0.92rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 16px rgba(124, 111, 255, 0.1);
+}
+kbd {
+    background: #1A1D2A;
+    border: 1px solid #3A3E54;
+    border-radius: 6px;
+    box-shadow: 0 2px 0 #000;
+    color: #00E5D2;
+    display: inline-block;
+    font-family: monospace;
+    font-size: 0.85em;
+    font-weight: 700;
+    line-height: 1;
+    padding: 4px 7px;
+    margin: 0 2px;
+    white-space: nowrap;
+}
+
 /* Component cards */
 .ada-card {
     background: var(--ada-card);
@@ -435,6 +465,19 @@ if st.session_state.ada_page != "home":
 # ---------------------------------------------------------------------------
 st.markdown('<div class="main-content">', unsafe_allow_html=True)
 
+# Global Hotkey Prominent Banner
+st.markdown(
+    """
+    <div class="hotkey-banner">
+        <div>
+            ⚡ <b>IMPORTANT DESKTOP SHORTCUT:</b> Press <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>A</kbd> anywhere on Windows to launch ADA Assistant instantly!
+        </div>
+        <span style="font-size:0.8rem; color:var(--ada-accent); font-weight:700;">Global Hotkey Active</span>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
+
 if st.session_state.ada_page == "home":
     # --- Top Row: Hello Hero (Left) & Quick Actions Grid (Right) ---
     top_hero_col, top_quick_col = st.columns([1.1, 1.2])
@@ -587,6 +630,7 @@ if st.session_state.ada_page == "home":
     with right:
         with st.expander("❓ Quick Guide & Agent Actions", expanded=True):
             st.markdown("""
+- **⚡ Hotkey Shortcut** — press `Ctrl+Alt+A` anywhere on Windows to launch ADA instantly!
 - **📧 Scan Gmail** — checks your Gmail inbox for job alert emails (LinkedIn/Naukri).
 - **🌐 Scan RemoteOK** — fetches live software & remote job listings from RemoteOK's public API.
 - **📅 Auto Schedule** — automatically finds free calendar slots and adds application events.

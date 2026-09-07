@@ -1,5 +1,10 @@
 # Ada — AI Career & Productivity Agent
 
+> [!IMPORTANT]
+> **⚡ GLOBAL DESKTOP HOTKEY: `Ctrl + Alt + A`**  
+> Press <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>A</kbd> anywhere on Windows to instantly pop open the ADA Assistant floating application window!  
+> To enable global listening, run `python -m agents.ada_hotkey` in the background.
+
 A multi-agent system that finds job postings (via Gmail alerts + RemoteOK),
 matches them against your resume using AI embeddings, schedules application
 tasks on your calendar, and can send WhatsApp messages / make calls / open
@@ -26,6 +31,7 @@ agent that follows instructions and takes action on its own.
    agents above
 7. **Daily summary** — `daily_summary.py` — the single command that runs
    the whole pipeline and prints one clean report
+8. **Ada hotkey** — `ada_hotkey.py` — listens for `Ctrl+Alt+A` to open the app window instantly.
 
 ## Quick reference
 
@@ -37,6 +43,7 @@ agent that follows instructions and takes action on its own.
 | `agents/matching_agent.py` | Resume-vs-job scoring using local AI embeddings |
 | `agents/planning_agent.py` | Auto-schedules to Google Calendar, no duplicates |
 | `agents/dashboard.py` | Browser-based review UI (auto or manual mode) |
+| `agents/ada_hotkey.py` | Global `Ctrl+Alt+A` desktop launcher |
 | `agents/whatsapp_agent.py` | Sends a real WhatsApp message via Twilio |
 | `agents/call_agent.py` | Places a real phone call with a spoken message |
 | `agents/meeting_reminder_agent.py` | Calls your phone before calendar meetings |
@@ -52,10 +59,11 @@ agent that follows instructions and takes action on its own.
    confirm ingestion works
 5. `python -m agents.matching_agent` to confirm resume scoring works
 6. `python -m agents.planning_agent` to confirm auto-scheduling works
-7. (Optional) Set up Twilio — see comments in `agents/whatsapp_agent.py` —
+7. `python -m agents.ada_hotkey` to start the global `Ctrl+Alt+A` hotkey listener
+8. (Optional) Set up Twilio — see comments in `agents/whatsapp_agent.py` —
    then test `python -m agents.whatsapp_agent` and `python -m agents.call_agent`
-8. `python -m agents.ada_assistant` to try natural-language commands
-9. `python -m agents.daily_summary` to run the full pipeline in one command
+9. `python -m agents.ada_assistant` to try natural-language commands
+10. `python -m agents.daily_summary` to run the full pipeline in one command
 
 ## Never commit these files
 Already in `.gitignore`:
@@ -63,6 +71,7 @@ Already in `.gitignore`:
 .env
 config/credentials.json
 config/token.json
+data/*.json
 ```
 
 ## Roadmap status
@@ -72,15 +81,4 @@ config/token.json
 - [x] Week 4 — Approval dashboard (Streamlit, auto/manual toggle)
 - [x] Week 5 — WhatsApp, calls, meeting reminders, Ada command layer
 - [x] Week 6 — Daily summary agent tying everything together
-
-## Known limitations / future enhancements
-- **Voice input**: built (`voice_ada.py`) but blocked by a `pyaudio` /
-  Python 3.14 compatibility issue on this machine. The command-parsing
-  logic is identical to the typed version, so voice can be added later
-  without touching the core agents.
-- **Calling from your own personal number**: not implemented on purpose —
-  automating your real WhatsApp/phone risks account bans. Twilio's
-  dedicated number is the ToS-compliant approach used here instead.
-- **Twilio trial restrictions**: messages/calls only work with numbers
-  verified on the Twilio account until you upgrade out of the free trial.
-
+- [x] Week 7 — Global `Ctrl+Alt+A` desktop hotkey floating app launcher
