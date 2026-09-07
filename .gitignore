@@ -1,0 +1,24 @@
+# Local secrets — never commit these
+.env
+config/credentials.json
+config/token.json
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment (common local folder names)
+venv/
+.venv/
+env/
+
+# Cached job / email data (Week 1+ may write JSON here later)
+data/*.json
+
+# IDE / OS noise
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db

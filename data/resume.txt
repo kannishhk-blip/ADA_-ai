@@ -1,0 +1,34 @@
+KANNISHHKRAM N
+Coimbatore, Tamil Nadu
+
+SUMMARY
+Second-year Artificial Intelligence & Machine Learning student (CGPA: 8.75) with hands-on experience in
+machine learning, data annotation, large language models (LLMs), retrieval-augmented generation (RAG),
+and cybersecurity through applied coursework, certifications, and independent projects. Currently
+completing an AI/ML specialization program with IIT Patna. Seeking an AI Evaluation Specialist or
+Machine Learning role, including remote opportunities.
+
+SKILLS
+Programming Languages: Python, Java, C
+AI/ML: Machine Learning, Artificial Intelligence, LLMs, RAG, MLOps, Neural Networks, Data Annotation, Applied ML
+Cybersecurity: Cybersecurity Fundamentals, Ethical Hacking (CEH), Microsoft Security Copilot
+Other: Research Analysis, Technical Documentation, Cross-functional Project Collaboration
+
+EDUCATION
+Rathinam Technical Campus, Coimbatore, Tamil Nadu
+Bachelor of Engineering (B.E.) - Artificial Intelligence & Machine Learning
+September 2025 - Present | 2nd Year | CGPA: 8.75 / 10
+
+PROJECTS
+PhishGuard AI - Personal Project
+Built an AI-powered phishing website detection system applying machine learning and website
+content/behavioral analysis techniques to classify malicious URLs. Combined cybersecurity fundamentals
+with applied ML to identify phishing indicators and reduce false-positive detection rates.
+
+CERTIFICATIONS
+Hands-On Data Annotation, Building Generative AI Skills, Introduction to LLMs, Generative AI with LLMs,
+Applied Machine Learning, Microsoft Security Copilot, Certified Ethical Hacker (CEH),
+Training Neural Networks in Python, Responsible AI
+
+ADDITIONAL LEARNING
+IIT Patna - Artificial Intelligence & Machine Learning Specialization (Tamil-medium course)

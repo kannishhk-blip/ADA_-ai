@@ -1,0 +1,27 @@
+# Google OAuth + Gmail/Calendar APIs
+google-auth
+google-auth-oauthlib
+google-auth-httplib2
+google-api-python-client
+
+# Environment variables
+python-dotenv
+
+# RSS feed parsing (Indeed public feeds)
+feedparser
+
+# Local resume/job embeddings
+sentence-transformers
+
+# Dashboard UI (Week 4+)
+streamlit
+
+# WhatsApp/calls (Week 5)
+twilio
+
+# RemoteOK API calls
+requests
+
+# Optional desktop/voice interfaces
+keyboard
+SpeechRecognition
