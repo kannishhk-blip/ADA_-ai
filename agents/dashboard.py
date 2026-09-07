@@ -61,8 +61,28 @@ st.markdown(
 
 /* Base resets & layout */
 [data-testid="stAppViewContainer"] { background: var(--ada-bg); }
-[data-testid="stHeader"] { background: transparent; }
-[data-testid="stToolbar"] { display: none; }
+[data-testid="stHeader"] { background: transparent !important; }
+
+/* ALWAYS show the sidebar collapse/expand toggle button clearly */
+[data-testid="stSidebarCollapsedControl"] {
+    display: flex !important;
+    visibility: visible !important;
+    background: #16171D !important;
+    border: 1.5px solid var(--ada-primary) !important;
+    border-radius: 10px !important;
+    color: var(--ada-accent) !important;
+    margin: 10px !important;
+    z-index: 999999 !important;
+    box-shadow: 0 4px 16px rgba(124, 111, 255, 0.3) !important;
+}
+[data-testid="stSidebarCollapsedControl"]:hover {
+    background: #1E2140 !important;
+    border-color: var(--ada-accent) !important;
+}
+[data-testid="stSidebarCollapsedControl"] svg {
+    fill: var(--ada-accent) !important;
+    color: var(--ada-accent) !important;
+}
 
 /* Custom scrollbars */
 ::-webkit-scrollbar { width: 6px; height: 6px; }
@@ -87,14 +107,6 @@ st.markdown(
     display: flex;
     align-items: center;
     gap: 0.4rem;
-}
-
-.sidebar-card {
-    background: #12131A;
-    border: 1px solid #232636;
-    border-radius: 14px;
-    padding: 0.9rem 1rem;
-    margin-bottom: 1rem;
 }
 
 [data-testid="stSidebar"] .stSlider label {
@@ -161,7 +173,7 @@ h1, h2, h3 {
     border: 1px solid rgba(124, 111, 255, 0.35);
     border-radius: 14px;
     padding: 0.85rem 1.35rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
     color: #F0F1F5;
     font-size: 0.9rem;
     display: flex;
@@ -481,7 +493,7 @@ if search:
 
 
 # ---------------------------------------------------------------------------
-# Navigation Bar Component
+# Navigation Bar Component (Rendered on ALL pages to guarantee navigation)
 # ---------------------------------------------------------------------------
 def render_navigation() -> None:
     top_nav = [
@@ -503,8 +515,9 @@ def render_navigation() -> None:
                 st.rerun()
 
 
-if st.session_state.ada_page != "home":
-    render_navigation()
+# Render top navigation bar across all pages
+render_navigation()
+st.markdown("<div style='height:0.75rem'></div>", unsafe_allow_html=True)
 
 # ---------------------------------------------------------------------------
 # Main Content Area
